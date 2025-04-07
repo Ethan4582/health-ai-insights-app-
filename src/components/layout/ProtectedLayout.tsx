@@ -1,10 +1,9 @@
-
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { toast } from '@/components/ui/sonner';
+import { toast } from 'sonner';
 
 interface ProtectedLayoutProps {
   children: React.ReactNode;

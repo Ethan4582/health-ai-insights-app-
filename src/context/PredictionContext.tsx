@@ -1,6 +1,5 @@
-
 import React, { createContext, useState, useContext } from 'react';
-import { toast } from '@/components/ui/sonner';
+import { toast } from 'sonner';
 
 type Disease = 'breast-cancer' | 'diabetes' | 'parkinsons';
 
