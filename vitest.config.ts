@@ -9,6 +9,9 @@ export default defineConfig({
     environment: 'happy-dom',
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
+    typecheck: {
+      tsconfig: './tsconfig.test.json',
+    },
   },
   resolve: {
     alias: {
