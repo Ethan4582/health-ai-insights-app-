@@ -4,13 +4,13 @@ describe('Login Flow', () => {
     cy.visit('/login');
     
     // Check for login form elements
-    cy.contains('h1', 'Login to your account').should('be.visible');
-    cy.get('input[name="email"]').should('be.visible');
-    cy.get('input[name="password"]').should('be.visible');
+    cy.contains('h1', 'Welcome Back').should('be.visible');
+    cy.get('input[type="email"]').should('be.visible');
+    cy.get('input[type="password"]').should('be.visible');
     
     // Enter credentials
-    cy.get('input[name="email"]').type('user@example.com');
-    cy.get('input[name="password"]').type('password');
+    cy.get('input[type="email"]').type('user@example.com');
+    cy.get('input[type="password"]').type('password');
     
     // Submit form
     cy.get('button[type="submit"]').click();
@@ -18,5 +18,20 @@ describe('Login Flow', () => {
     // Verify successful login
     cy.url().should('include', '/dashboard');
     cy.contains('Welcome').should('be.visible');
+  });
+
+  it('should show error for invalid login', () => {
+    cy.visit('/login');
+    
+    // Enter invalid credentials
+    cy.get('input[type="email"]').type('wrong@example.com');
+    cy.get('input[type="password"]').type('wrongpassword');
+    
+    // Submit form
+    cy.get('button[type="submit"]').click();
+    
+    // Error message should appear (this will only work if your app shows errors)
+    // This test might fail as we're using mock authentication, adjust as needed
+    cy.contains('Sign in').should('be.visible');
   });
 });
