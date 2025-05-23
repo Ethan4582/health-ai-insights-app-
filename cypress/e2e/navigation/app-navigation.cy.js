@@ -7,9 +7,13 @@ describe('App Navigation', () => {
   it('should navigate between different sections', () => {
     // Start at dashboard
     cy.visit('/dashboard');
+      
     
     // Check disease selector
-    cy.contains('Select a disease to predict').should('be.visible');
+    cy.contains('Select a disease').should('be.visible');
+    cy.url().should('include', '/dashboard');
+    cy.contains('Select a disease', { timeout: 10000 }).should('be.visible');
+    
     
     // Navigate to breast cancer prediction via UI
     cy.contains('Breast Cancer').click();

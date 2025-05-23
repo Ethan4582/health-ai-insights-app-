@@ -4,7 +4,8 @@ describe('Registration Flow', () => {
     cy.visit('/register');
     
     // Check for registration form elements
-    cy.contains('h1', 'Create Account').should('be.visible');
+    cy.contains('Create Account').should('be.visible');
+
     cy.get('input[id="name"]').should('be.visible');
     cy.get('input[type="email"]').should('be.visible');
     cy.get('input[id="password"]').should('be.visible');

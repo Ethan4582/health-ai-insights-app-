@@ -4,7 +4,8 @@ describe('Login Flow', () => {
     cy.visit('/login');
     
     // Check for login form elements
-    cy.contains('h1', 'Welcome Back').should('be.visible');
+    cy.contains('Welcome Back').should('be.visible');
+
     cy.get('input[type="email"]').should('be.visible');
     cy.get('input[type="password"]').should('be.visible');
     

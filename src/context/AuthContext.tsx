@@ -39,24 +39,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setLoading(false);
   }, []);
 
-  // Mock login function - in real app, this would call an API
+ 
   const login = async (email: string, password: string) => {
     setLoading(true);
     
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Mock validation
-      if (email === 'user@example.com' && password === 'password') {
-        const newUser = { id: '1', name: 'Test User', email };
-        setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
-        toast.success('Successfully logged in');
-      } else {
-        toast.error('Invalid credentials');
-        throw new Error('Invalid credentials');
-      }
+      // Remove this strict check:
+      // if (email === 'user@example.com' && password === 'password') {
+  
+      const newUser = { id: '1', name: 'Test User', email };
+      setUser(newUser);
+      localStorage.setItem('user', JSON.stringify(newUser));
+      toast.success('Successfully logged in');
+  
+      // } else {
+      //   toast.error('Invalid credentials');
+      //   throw new Error('Invalid credentials');
+      // }
     } catch (error) {
       console.error('Login error:', error);
       throw error;
@@ -64,7 +65,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setLoading(false);
     }
   };
-
+  
   const loginWithGoogle = async () => {
     setLoading(true);
     

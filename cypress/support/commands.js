@@ -12,8 +12,8 @@
 // Custom command for login
 Cypress.Commands.add('login', (email = 'user@example.com', password = 'password') => {
   cy.visit('/login');
-  cy.get('input[name="email"]').type(email);
-  cy.get('input[name="password"]').type(password);
+  cy.get('input[id="email"]').should('be.visible').type(email);       // updated selector
+  cy.get('input[id="password"]').should('be.visible').type(password); // updated if needed
   cy.get('button[type="submit"]').click();
   
   // Verify we're on the dashboard
